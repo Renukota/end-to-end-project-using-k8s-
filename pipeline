@@ -1,0 +1,6 @@
+stage("oswap"){
+            steps{
+              dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', nvdCredentialsId: 'dp-check', odcInstallation: 'dp-check'
+              dependencyCheckPublisher pattern: '**/dependency-report.xml'
+            }
+        }
